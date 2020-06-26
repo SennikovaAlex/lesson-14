@@ -7,7 +7,7 @@ const DomElement = function () {
     this.height = 10,
     this.width = 10,
     this.bg = 'white',
-    this.fontSize = 14
+    this.fontSize = 14;
 };
 
 DomElement.prototype.style = function() {
@@ -19,18 +19,19 @@ DomElement.prototype.createElement = function(text) {
       let block;
          if(this.selector[0] == '.') {
              block  = document.createElement('div');
-            block.classListAdd = this.selector.slice(1);
+            block.classList.add(this.selector.slice(1));
+            console.log(block);
 
          } else if(this.selector[0] == '#') {
              block = document.createElement('p');
              block.id = this.selector.slice(1);
             article.appendChild(block);
-         };
+         }
       let textContent;
        if (text) {
          textContent = prompt('введите текст для элемента'); 
          block.textContent = textContent;
-      };
+      }
          article.appendChild(block);
          
          block.style.cssText = this.style();
@@ -40,7 +41,7 @@ DomElement.prototype.createElement = function(text) {
 let newElement = new DomElement();
 console.log(newElement);
 newElement.selector = '.text';
-newElement.height = 20;
+newElement.height = 60;
 newElement.width = 1000;
 newElement.bg = 'red';
 newElement.fontSize = 54;
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function(){
    
    newElementSquare.createElement();
 
-    let square = document.querySelectorAll('div')[1];
+    let square = document.querySelector('.square');
     console.log(square);
     let topchik = 150;
     let shift = 10;
